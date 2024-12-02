@@ -2,12 +2,7 @@ from pathlib import Path
 from collections import Counter
 from typing import List
 
-
-def get_input() -> list:
-    file_name = Path(__file__.replace(".py", ".txt")).name
-    file = Path(__file__).resolve().parents[1] / "input" / file_name
-    with open(file, "r") as f:
-        return f.read().splitlines()
+import util
 
 
 def clean_data(data: list) -> "List[List[int]]":
@@ -36,7 +31,7 @@ def solve_part_2(data: "List[List[int]]") -> int:
 
 
 def main():
-    data = get_input()
+    data = util.get_input()
     data = clean_data(data)
     print(f"location_id differences: {solve_part_1(data)}")
     print(f"similarity score: {solve_part_2(data)}")
